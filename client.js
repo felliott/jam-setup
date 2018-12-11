@@ -6,7 +6,10 @@ var Client = function(env) {
     if (['local', 'stage', 'prod'].indexOf(env) === -1) {
         throw new Error('Invalid environment specified. Please use \'stage\' or \'prod\'');
     }
-    var config = CFG[env];
+    var config = CFG[env] || {};
+    if (typeof config.COLLECTIONS_PATH !== "string") {
+        config.COLLECTIONS_PATH = "./collections.js";
+    }
     var collections = require(config.COLLECTIONS_PATH);
 
     var self = this;
