@@ -33,7 +33,9 @@ function Manager(config) {
         self._name = name;
         self._namespace = namespace;
         self._token = namespace._token;
-        self._url = `${config.JAM_URL}/v1/id/collections/${self._namespace._name}.${self._name}`;
+
+        var shortname = name.substring(name.indexOf('.') +1);
+        self._url = `${config.JAM_URL}/v1/id/collections/${self._namespace._name}.${shortname}`;
 
         self.get = function(id) {
             return request.get({
@@ -226,7 +228,6 @@ function Manager(config) {
     };
 
     self.create = function(namespace, attrs) {
-        debugger;
         return request.post({
             json: true,
             url: self._url,
