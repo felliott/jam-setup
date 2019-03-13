@@ -1,8 +1,6 @@
 /* jshint node: true, esnext: true*/
 var Promise = require('bluebird'); // jshint ignore: line
 var request = require('request-promise');
-const fs  = require("fs");
-var CFG = require('config');
 
 var CONTENT_TYPE = 'application/vnd.api+json';
 var PATCH_CONTENT_TYPE = 'application/vnd.api+json ext="jsonpatch";';
@@ -25,9 +23,8 @@ var USER_SCHEMA = {
 
 function Manager(config) {
     var self = this;
-    const jamToken = fs.readFileSync("/etc/jam/token.jwt", "utf-8")
 
-    self._token = process.env.JAM_TOKEN || jamToken || config.JAM_TOKEN;
+    self._token = process.env.JAM_TOKEN || config.JAM_TOKEN;
     self._url = `${process.env.JAM_URL || config.JAM_URL}/v1/namespaces`;
 
 

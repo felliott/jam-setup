@@ -1,9 +1,5 @@
-stage:
-  JAM_TOKEN: CHANGEME
-  JAM_URL: http://localhost:1212
-  COLLECTIONS_PATH: ./collections.js
-
-prod:
-  JAM_TOKEN: CHANGEME
-  JAM_URL: http://localhost:1212
-  COLLECTIONS_PATH: ./collections.js
+JAM_TOKEN: CHANGEME
+JAM_URL: http://localhost:1212
+COLLECTIONS_PATH: ./collections.js
+NAMESPACE: isp
+ADMIN_GUID: CHANGEME
