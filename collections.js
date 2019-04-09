@@ -23,7 +23,7 @@ module.exports = [{
 }, {
     id: 'thumbnails',
     attrs: {
-        state: 'mongo',
+        // state: 'mongo',
         permissions: {
             '*': READ
         }
