@@ -93,11 +93,7 @@ function Manager(config) {
                 value: USER_SCHEMA
             }, {
                 op: 'add',
-                path: '/flags/userCollection',
-                value: true
-            }, {
-                op: 'add',
-                path: '/flags/createdIsOwner',
+                path: '/plugins/user/createdIsOwner',
                 value: !createdIsOwner
             }]);
         };

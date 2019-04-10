@@ -16,6 +16,9 @@ module.exports = [{
     id: 'accounts',
     attrs: {
         // schema: {},
+        plugins: {
+            user: {}
+        },
         permissions: {
             '*': CREATE
         }

@@ -42,7 +42,13 @@ var Client = function() {
                 console.log('Bootstrapping collection: ', col.id);
                 ns.getOrCreate(namespace + '.' + col.id, col.attrs).then(function(collection) {
                     console.log('Updating collection: ', col.id);
-                    collection.update(col.attrs);
+                    collection.update(col.attrs).then(function() {
+                        if (col.id === 'accounts') {
+                            // Wait until the update is done to run userify, otherwise the
+                            // post-update cleanup will remove the /schema and /plugins changes
+                            collection.userify();
+                        }
+                    });
                 });
             });
         });
